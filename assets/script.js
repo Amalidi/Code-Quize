@@ -1,3 +1,5 @@
+console.log("hello")
+
 // Targeting the banner box
 const bannerBox = document.getElementById("banner-box");
 
@@ -8,3 +10,4 @@ const startButton = document.getElementById("start-btn")
 const mainSection = document.getElementById("start-btn")
 
 // Question options
+

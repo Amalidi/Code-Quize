@@ -34,10 +34,15 @@ nav {
 
 .main {
   flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* first page section */
 
+/* styles for the button */
 .btn-control {
   padding: 2rem 1rem;
   text-align: center;
@@ -66,25 +71,45 @@ button:hover {
   outline: none;
 }
 
+/* the banner box */
 .start-section-container {
-  position: absolute;
-  top: 29%;
-  left: 29%;
-}
-
-.start-section-container {
-  background: #fff;
-  width: 700px;
-  border-radius: 5px;
-  padding: auto;
-  box-shadow: 0 0 10px 2px;
-  margin: auto;
-}
-
-.start-section-container {
+  background-color: #fff;
+  letter-spacing: 5px;
   text-align: center;
-  justify-content: center;
-  padding: 12vh;
-  margin-top: 20px;
-  padding: auto;
+  position: relative;
+  /* font-size: 1.9rem; */
+  border-radius: 5px;
+  box-shadow: 0 0 10px 2px;
+  /* padding: 100px; */
+  padding: 3rem 3rem;
+}
+
+.start-section-title {
+  font-size: 3rem;
+}
+
+.info-title {
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    margin: 0px;
+    padding: 0%;
+  }
+
+  .start-section-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .start-section-container {
+    /* left: auto; */
+    margin: 0;
+    padding: 0px;
+    width: 400px;
+    height: 400px;
+  }
 }

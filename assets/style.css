@@ -33,11 +33,14 @@ nav {
 }
 
 .main {
+  padding: 20px;
   flex: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 2rem;
+  position: relative;
 }
 
 /* first page section */
@@ -73,14 +76,13 @@ button:hover {
 
 /* the banner box */
 .start-section-container {
+  margin: 40px;
   background-color: #fff;
   letter-spacing: 5px;
   text-align: center;
   position: relative;
-  /* font-size: 1.9rem; */
   border-radius: 5px;
   box-shadow: 0 0 10px 2px;
-  /* padding: 100px; */
   padding: 3rem 3rem;
 }
 
@@ -92,12 +94,26 @@ button:hover {
   font-size: 1rem;
 }
 
-@media screen and (max-width: 768px) {
-  .main {
-    margin: 0px;
-    padding: 0%;
-  }
+footer {
+  position: relative;
+  background: #0077b6;
+  text-align: center;
+}
 
+.end {
+  color: white;
+  font-size: 17px;
+}
+
+.social a {
+  padding: 10px;
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  font-size: 33px;
+}
+
+@media screen and (max-width: 768px) {
   .start-section-container {
     display: flex;
     flex-direction: column;
@@ -106,10 +122,12 @@ button:hover {
   }
 
   .start-section-container {
-    /* left: auto; */
     margin: 0;
     padding: 0px;
-    width: 400px;
-    height: 400px;
+    letter-spacing: 0;
+  }
+
+  .start-section-title {
+    font-size: 2rem;
   }
 }

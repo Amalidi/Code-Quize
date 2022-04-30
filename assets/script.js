@@ -38,5 +38,33 @@ renderQuestionSection();
 // even listner to quiz start button
 startButton.addEventListener("click", quizStartButtonClick)
 
+// question options
+const questions = [
+    {
+        question: "Which of the following cities was the first to open a public library?",
+        options: ["Seville, Spain", "Warsaw, Poland", "Naples, Italy", "Stuttgart, Germany"],
+        answer: "Warsaw, Poland"
+    },
+    {
+        question: "In 2013 which two airlines merged to become the world’s largest airline?",
+        options: ["Air France and KLM", "American Airlines and US Airways", "British Airways and Iberia", "Lufthansa and Germanwings"],
+        answer: "American Airlines and US Airways"
+    },
+    {
+        question: "Which country has more lakes than the rest of the world combined?",
+        options: ["China", "Finland", "Norway", "Canada"],
+        answer: "Canada"
+    },
+    {
+        question: "Which country has the world's highest waterfall?",
+        options: ["Japan", "Venezuela", "Uganda", "America"],
+        answer: "Venezuela"
+    },
+    {
+        question: "Which country connects North and South America?",
+        options: ["Panama", "Honduras", "Nicaragua", "lEl Salvador"],
+        answer: "Panama"
+    }
+]
 
-// Question options
+

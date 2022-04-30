@@ -38,14 +38,41 @@
 
       <!-- questions section - use js  -->
       <section class="question-container" id="question-section">
-        <h2 class="first-question">Question 1 : what is the xxx ?</h2>
-        <ul class="list" id="list">
-          <li class="btn list-item" id="list-answer">NO</li>
-          <li class="btn list-item" id="list-answer">YES</li>
-          <li class="btn list-item" id="list-answer">MAYBE</li>
-          <li class="btn list-item" id="list-answer">NOT SURE</li>
-        </ul>
+        <div class="top-section">
+          <div class="title">Quiz Challenge</div>
+          <div class="timer">
+            <div class="time-text">Time Left :</div>
+            <div class="timer-sec">100</div>
+          </div>
+        </div>
+        <div class="question-options">
+          <h2 class="first-question">Question 1 : what is the xxx ?</h2>
+          <ul class="list" id="option-list">
+            <li class="btn-list-item" id="list-answer">1</li>
+            <li class="btn-list-item" id="list-answer">2</li>
+            <li class="btn-list-item" id="list-answer">3</li>
+            <li class="btn-list-item" id="list-answer">4</li>
+          </ul>
+        </div>
       </section>
+
+      <!-- form section dynamically rendered via JS -->
+      <!-- <section class="feedback-form-section" name="feedback-form">
+        <h2 class="title">Submit your feedback</h2>
+        <form>
+          <div class="form-control">
+            <input
+              name="full-name"
+              class="form-input"
+              type="text"
+              placeholder="Enter full name"
+            />
+          </div>
+          <div class="form-control">
+            <button class="btn" type="submit">Submit</button>
+          </div>
+        </form>
+      </section> -->
 
       <!-- countdown timer banner -->
       <!-- <section class="timer-section-container" id="timer-container">

@@ -18,10 +18,19 @@
   <body>
     <!-- Navlinks section -->
     <header class="navbar-section">
-      <nav>
-        <a href="./index.html" class="navbarlink">Home</a>
-        <a href="./highscores.html" class="navbarlink"> High score</a>
-      </nav>
+      <div class="navbox">
+        <div class="link-nav">
+          <a href="./index.html" class="navbarlink"
+            ><i class="fas fa-2x fa-home"></i>Home</a
+          >
+          <a href="./highscores.html" class="navbarlink"> High score</a>
+        </div>
+
+        <div class="timer">
+          <div class="time-text">Time Left :</div>
+          <span class="timer-sec" id="time-span">0</span>
+        </div>
+      </div>
     </header>
 
     <!-- main section - first page -->
@@ -36,7 +45,7 @@
         </div>
       </section>
 
-      <section class="timer-section" id="timer-box">
+      <!-- <section class="timer-section" id="timer-box">
         <div class="top-section">
           <h5 class="title">Quiz Challenge</h5>
           <div class="timer">
@@ -44,7 +53,7 @@
             <div class="timer-sec" id="time-span">100</div>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <!-- questions section - use js  -->
       <!-- <section class="question-container" id="question-box">

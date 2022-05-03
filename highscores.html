@@ -18,13 +18,19 @@
   <body>
     <!-- Navlinks section -->
     <header class="navbar-section">
-      <nav>
-        <a href="./index.html" class="navbarlink">Home</a>
-        <a href="./highscores.html" class="navbarlink"> High score</a>
-      </nav>
-    </header>
+      <div class="navbox">
+        <div class="link-nav">
+          <a href="./index.html" class="navbarlink"
+            ><i class="fas fa-2x fa-home"></i>Home</a
+          >
+          <a href="./highscores.html" class="navbarlink"> High score</a>
+        </div>
 
-    <footer></footer>
-    <script src="./assets/highscores.js"></script>
+        <div class="timer">
+          <div class="time-text">Time Left :</div>
+          <span class="timer-sec" id="time-span">0</span>
+        </div>
+      </div>
+    </header>
   </body>
 </html>

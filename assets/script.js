@@ -117,7 +117,7 @@ const startTimer = () => {
       // if quizComplete is true then stop timer
       if(endQuiz){
           clearInterval(timerId);
-          document.getElementById("timer-box").remove();
+          document.getElementById("top-section").remove();
       }else{
           // check if timer reaches 0
           if(timer <= 0){
@@ -194,52 +194,54 @@ const renderQuestionSection = () => {
     section.addEventListener("click", handleOptionClick)
 };
 
-const renderTimerSection = () => {
-    console.log("render timer")
-    // use HTML as guide and build in JS
+// const renderTimerSection = () => {
+//     console.log("render timer")
+//     // use HTML as guide and build in JS
 
-    // create section
-    const TimerSpanSection = document.createElement("section");
-    TimerSpanSection.setAttribute("class", "timer-section");
-    TimerSpanSection.setAttribute("id", "timer-box");
+//     // create section
+//     const TimerSpanSection = document.createElement("section");
+//     TimerSpanSection.setAttribute("class", "timer-section");
+//     TimerSpanSection.setAttribute("id", "timer-box");
     
-    // top section
-    const topSection = document.createElement("topSection");
-    topSection.setAttribute("class", "top-section");
+//     // top section
+//     const topSection = document.createElement("topSection");
+//     topSection.setAttribute("class", "top-section");
 
-    // create h5 
-    const h5 = document.createElement("h5");
-    h5.setAttribute("class", "title");
-    h5.textContent = "Quiz Challenge";
+//     // create h5 
+//     const h5 = document.createElement("h5");
+//     h5.setAttribute("class", "title");
+//     h5.textContent = "Quiz Challenge";
 
 
-    // timer div section
-    const timeDiv = document.createElement("timeDiv");
-    timeDiv.setAttribute("class", "timer");
+//     // timer div section
+//     const timeDiv = document.createElement("timeDiv");
+//     timeDiv.setAttribute("class", "timer");
 
-    // timer text div
-    const timeText = document.createElement("timeText");
-    timeText.setAttribute("class", "time-text");
-    timeText.textContent = "Time Left :";
+//     // timer text div
+//     const timeText = document.createElement("timeText");
+//     timeText.setAttribute("class", "time-text");
+//     timeText.textContent = "Time Left :";
 
-    // timer sec div
-    const secondsDiv = document.createElement("secondsDiv");
-    secondsDiv.setAttribute("class", "timer-sec");
-    // secondsDiv.textContent = "100";
-    secondsDiv.textContent = ` ${timer} `;
+//     // timer sec div
+//     const secondsDiv = document.createElement("secondsDiv");
+//     secondsDiv.setAttribute("class", "timer-sec");
+//     // secondsDiv.textContent = "100";
+//     secondsDiv.textContent = ` ${timer} `;
 
-    // append the divs, h2, h5 and ul to section
-    TimerSpanSection.append(topSection,h5,timeDiv,timeText,secondsDiv);
+//     // append the divs, h2, h5 and ul to section
+//     TimerSpanSection.append(topSection,h5,timeDiv,timeText,secondsDiv);
 
-    // append top section h5 and timer div
-    topSection.append(h5,timeDiv,timeText,secondsDiv)
+//     // append top section h5 and timer div
+//     topSection.append(h5,timeDiv,timeText,secondsDiv)
 
-    // append timer to tome-text and timer-sec
-    timeDiv.append(timeText,secondsDiv)
+//     // append timer to tome-text and timer-sec
+//     timeDiv.append(timeText,secondsDiv)
 
-    // append section to main
-    mainSection.append(TimerSpanSection);
-  };
+//     // append section to main
+//     mainSection.append(TimerSpanSection);
+
+//     startTimer();
+//   };
 
 // this part removes banner section 
     const removeBanner = () => {

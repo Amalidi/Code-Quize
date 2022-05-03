@@ -11,14 +11,30 @@ body {
 
 /* Navbar section */
 
-nav {
-  font-size: 70;
+.navbox {
+  font-size: 18px;
+  display: block;
   display: flex;
+  /* justify-content: flex-end;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
+  flex-wrap: wrap; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  padding: 2rem 2rem;
+}
+
+/* .link-nav {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+} */
+
+.navbarlink {
+  margin: 20px;
+}
+
+.timer {
+  margin-left: auto;
 }
 
 .navbarlink {

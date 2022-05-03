@@ -25,7 +25,7 @@
     </header>
 
     <!-- main section - first page -->
-    <main class="main" id="main">
+      <!-- countdown timer section -->
       <section class="start-section-container" id="banner-box">
         <h4 class="start-section-title">Start the quize challenge</h4>
         <h5 class="info-title">Click the start quiz button to begin!</h5>
@@ -75,19 +75,6 @@
             <button class="btn" type="submit">Submit</button>
           </div>
         </form>
-      </section> -->
-
-      <!-- countdown timer banner -->
-      <!-- <section class="timer-section-container" id="timer-container">
-        <div class="timer-box">
-          <p class="timer-header">knowledge quiz</p>
-        </div>
-        <div>
-          <span>
-            <p class="timer-text">Time Left :</p>
-            <span class="timer-sec" id="timeleft">0</span>
-          </span>
-        </div>
       </section> -->
     </main>
 

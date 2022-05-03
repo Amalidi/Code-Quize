@@ -1,3 +1,4 @@
+console.log("hello")
 // console.log("hello")
 
 // Targeting the banner box
@@ -9,17 +10,18 @@ const startButton = document.getElementById("start-btn")
 // Targeting the main section
 const mainSection = document.getElementById("main")
 
+// const targeting the time
+// const timerSpan = document.getElementById("time-span")
+
 // question index
 let questionIndex = 0;
-// let timerValue = 10 * questions.length;
-// let quizComplete = false;
+let timer;
+// let timeLeft = 0;
 
-// const startQuiz = () => {
-//     // remove start section
-//     // start timer
-//     // render timer section
-//     // render question section
-//   };
+
+
+// After start is clicked, the timer begins to count down
+
   
 
 // question options
@@ -84,10 +86,13 @@ const handleOptionClick = (event) => {
             questionIndex += 1;
             renderQuestionSection()
         }else{
+            score = timer;
+            quizComplete = true;
             // if last question render the users results and form go to highscore page
             renderForm();
             renderResults();
         } 
+
     }
 };
 
@@ -102,8 +107,30 @@ const renderForm = () => {
     
 };
 
-
-
+const startTimer = () => {
+    const timerSpan = document.getElementById("timer-span");
+    // declare function to execute every 1 sec
+    const countdown = () => {
+        timer -= 1;
+      // decrement timer value
+      timerSpan.textContent = timer
+      // if quizComplete is true then stop timer
+      if(endQuiz){
+          clearInterval(timerId);
+          document.getElementById("timer-box").remove();
+      }else{
+          // check if timer reaches 0
+          if(timer <= 0){
+              clearInterval(timerId)
+              score= 0;
+              document.getElementById("timer-box").remove();
+          }
+      }
+    };
+    // setInterval of 1000ms (1s)
+    const timerId = setInterval(countdown, 1000);
+    console.log(timerId);
+  };
 
 const renderQuestionSection = () => {
     console.log('render question')
@@ -115,34 +142,6 @@ const renderQuestionSection = () => {
     const section = document.createElement("section");
     section.setAttribute("class", "question-container");
     section.setAttribute("id", "question-box");
-
-
-    // create a div-section
-    const topSection = document.createElement("topSection");
-    topSection.setAttribute("class", "top-section");
-
-
-    // // title quiz challange
-    const titleDiv = document.createElement("titleDiv");
-    titleDiv.setAttribute("class", "title");
-    titleDiv.textContent = "Quiz Challenge";
-
-
-    // timer div section
-    const timeDiv = document.createElement("timeDiv");
-    timeDiv.setAttribute("class", "timer");
-
-
-    // time left : div
-    const timeText = document.createElement("timeText");
-    timeText.setAttribute("class", "time-text");
-    timeText.textContent = "Time Left :";
-
-
-    // seconds div
-    const secondsDiv = document.createElement("secondsDiv");
-    secondsDiv.setAttribute("class", "timer-sec");
-    secondsDiv.textContent = "100";
 
     // div section for question options
     const questionDiv = document.createElement("questionDiv");
@@ -182,15 +181,7 @@ const renderQuestionSection = () => {
 
     // append the divs, h2, h5 and ul to section
 
-    section.append(topSection,titleDiv,timeDiv,timeText,secondsDiv,questionDiv,h2,ul);
-
-    // append the topSectionto the divs
-
-    topSection.append(titleDiv,timeDiv,timeText,secondsDiv)
-
-    // append the timer div section to the divs
-
-    timeDiv.append(timeText,secondsDiv)
+    section.append(questionDiv,h2,ul);
 
     // append the question section to the h2 and ul
 
@@ -203,11 +194,59 @@ const renderQuestionSection = () => {
     section.addEventListener("click", handleOptionClick)
 };
 
+const renderTimerSection = () => {
+    console.log("render timer")
+    // use HTML as guide and build in JS
+
+    // create section
+    const TimerSpanSection = document.createElement("section");
+    TimerSpanSection.setAttribute("class", "timer-section");
+    TimerSpanSection.setAttribute("id", "timer-box");
+    
+    // top section
+    const topSection = document.createElement("topSection");
+    topSection.setAttribute("class", "top-section");
+
+    // create h5 
+    const h5 = document.createElement("h5");
+    h5.setAttribute("class", "title");
+    h5.textContent = "Quiz Challenge";
+
+
+    // timer div section
+    const timeDiv = document.createElement("timeDiv");
+    timeDiv.setAttribute("class", "timer");
+
+    // timer text div
+    const timeText = document.createElement("timeText");
+    timeText.setAttribute("class", "time-text");
+    timeText.textContent = "Time Left :";
+
+    // timer sec div
+    const secondsDiv = document.createElement("secondsDiv");
+    secondsDiv.setAttribute("class", "timer-sec");
+    // secondsDiv.textContent = "100";
+    secondsDiv.textContent = ` ${timer} `;
+
+    // append the divs, h2, h5 and ul to section
+    TimerSpanSection.append(topSection,h5,timeDiv,timeText,secondsDiv);
+
+    // append top section h5 and timer div
+    topSection.append(h5,timeDiv,timeText,secondsDiv)
+
+    // append timer to tome-text and timer-sec
+    timeDiv.append(timeText,secondsDiv)
+
+    // append section to main
+    mainSection.append(TimerSpanSection);
+  };
+
 // this part removes banner section 
     const removeBanner = () => {
     console.log('render banner')
     bannerBox.remove();
 };
+
 
 // this part questions banner section 
 const removeQuestion = () => {
@@ -215,9 +254,28 @@ const removeQuestion = () => {
     document.getElementById("question-box").remove();
 };
 
+const initialiseLocalStorage = () => {
+    // get the users score from local storage
+    const scoreFromLs = JSON.parse(localStorage.getItem("scoreResults"));
+    if(!scoreFromLs){
+        // if not exist set LS to have feedbackResults as an empty array
+        localStorage.setItem("scoreResults", JSON.stringify([]));
+    };
+    console.log("score results");
+
+
+    le.log(scoreFromLs);
+    
+    // if not exist set LS to have feedbackResults as an empty array
+};
+
 // declaring the event handler for the quiz start button click
 const quizStartButtonClick = () => {
     console.log("start button");
+
+
+//initialise local storage
+// initialiseLocalStorage();
 
 // this part removes banner section 
 removeBanner();
@@ -225,7 +283,12 @@ removeBanner();
 
 // render questions
 renderQuestionSection();
+
+// render the timer box
+renderTimerSection();
+
 };
+
 
 // even listner to quiz start button
 startButton.addEventListener("click", quizStartButtonClick)

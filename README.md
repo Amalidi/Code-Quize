@@ -24,6 +24,6 @@ If the user runs out of time before they get to complete the quiz they are prese
 
 The highscore page which could be navigated from the navbar will Present the scores as a list with initials and the score. It will aslo be prompted by two buttons one which returns the user to the home page and the other which could be used to clear the overall scores.
 
-# Screenshot
+# Screenshot of the app:
 
-![Image of the project](./assets/Images/projectImage.png)
+![Image of the project](./assets/images/project%20Image.png)

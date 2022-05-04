@@ -78,6 +78,7 @@ const handleOptionClick = (event) => {
         }
 
         // store answer in local storage
+        storeAnswerInLS(answer);
         
         // remove the question 
         removeQuestion();
@@ -256,20 +257,35 @@ const removeQuestion = () => {
     document.getElementById("question-box").remove();
 };
 
+
 const initialiseLocalStorage = () => {
-    // get the users score from local storage
-    const scoreFromLs = JSON.parse(localStorage.getItem("scoreResults"));
-    if(!scoreFromLs){
-        // if not exist set LS to have feedbackResults as an empty array
-        localStorage.setItem("scoreResults", JSON.stringify([]));
-    };
-    console.log("score results");
+    // get feedbackResults from LS
+    const feedbackResultsFromLS = JSON.parse(localStorage.getItem("feedbackResults")
+    );
+  
+    const allResultsFromLS = JSON.parse(localStorage.getItem("allResults"));
+  
+    if (!feedbackResultsFromLS) {
+      // if not exist set LS to have feedbackResults as an empty array
+      localStorage.setItem("feedbackResults", JSON.stringify([]));
+    }
+  
+    if (!allResultsFromLS) {
+      // if not exist set LS to have feedbackResults as an empty array
+      localStorage.setItem("allResults", JSON.stringify([]));
+    }
+  };
 
+  const storeAnswerInLS = (answer) => {
+    //   get feedback results from local storage
+    const feedbackResults = JSON.parse(localStorage.getItem("feedbackResults"));
+    //   add answer to an array
+    feedbackResults.push(answer);
+    // set score results in ls
+    localStorage.setItem("feedbackResults", JSON.stringify(feedbackResults))
+    //   store answer in local storage
 
-    le.log(scoreFromLs);
-    
-    // if not exist set LS to have feedbackResults as an empty array
-};
+  }
 
 // declaring the event handler for the quiz start button click
 const quizStartButtonClick = () => {

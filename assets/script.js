@@ -1,4 +1,3 @@
-console.log("hello")
 // console.log("hello")
 
 // Targeting the banner box
@@ -15,14 +14,13 @@ const mainSection = document.getElementById("main")
 
 // question index
 let questionIndex = 0;
-let timer;
+// var timeSpan = 0;
+let time = 60;
+// var currentQuestion = -1;
+// let timer;
 // let timeLeft = 0;
 
 
-
-// After start is clicked, the timer begins to count down
-
-  
 
 // question options
 const questions = [
@@ -78,7 +76,7 @@ const handleOptionClick = (event) => {
         }
 
         // store answer in local storage
-        storeAnswerInLS(answer);
+        // storeAnswerInLS(answer);
         
         // remove the question 
         removeQuestion();
@@ -101,6 +99,32 @@ const handleOptionClick = (event) => {
 const renderResults = () => {
     console.log("render results");
 
+    // targeting the form and time span
+    const timerSpan = document.getElementById("time-span");
+    timerSpan.innerText = time;
+    const formSection = document.createElement("form-box");
+    formSection.action = "./highscores.html";
+    // rendering the form box
+    formSection.innerHTML = 
+    `<section id="form-box" class="form-section">
+    <h2 class="title">All done 🎉</h2>
+    <p class="h2-title">Your final score is ${time} <span id=score></span>.</p>
+    <form>
+            <div class="form-control">
+              <label for="name">Enter your initials: </label>
+              <input id="initials" type="text">
+            </div>
+            <div class="form-control">
+              <button class="btn" type="submit">Submit</button>
+            </div>
+          </form>
+   </section>`;
+
+   mainSection.innerHTML = "";
+
+    //    append form to main section
+    mainSection.appendChild(formSection);
+
 };
 // functions to render form
 const renderForm = () => {
@@ -108,30 +132,30 @@ const renderForm = () => {
     
 };
 
-const startTimer = () => {
-    const timerSpan = document.getElementById("timer-span");
-    // declare function to execute every 1 sec
-    const countdown = () => {
-        timer -= 1;
-      // decrement timer value
-      timerSpan.textContent = timer
-      // if quizComplete is true then stop timer
-      if(endQuiz){
-          clearInterval(timerId);
-          document.getElementById("top-section").remove();
-      }else{
-          // check if timer reaches 0
-          if(timer <= 0){
-              clearInterval(timerId)
-              score= 0;
-              document.getElementById("timer-box").remove();
-          }
-      }
-    };
-    // setInterval of 1000ms (1s)
-    const timerId = setInterval(countdown, 1000);
-    console.log(timerId);
-  };
+// const startTimer = () => {
+//     const timerSpan = document.getElementById("timer-span");
+//     // declare function to execute every 1 sec
+//     const countdown = () => {
+//         timer -= 1;
+//       // decrement timer value
+//       timerSpan.textContent = timer
+//       // if quizComplete is true then stop timer
+//       if(endQuiz){
+//           clearInterval(timerId);
+//           document.getElementById("top-section").remove();
+//       }else{
+//           // check if timer reaches 0
+//           if(timer <= 0){
+//               clearInterval(timerId)
+//               score= 0;
+//               document.getElementById("timer-box").remove();
+//           }
+//       }
+//     };
+//     // setInterval of 1000ms (1s)
+//     const timerId = setInterval(countdown, 1000);
+//     console.log(timerId);
+//   };
 
 const renderQuestionSection = () => {
     console.log('render question')
@@ -276,16 +300,16 @@ const initialiseLocalStorage = () => {
     }
   };
 
-  const storeAnswerInLS = (answer) => {
-    //   get feedback results from local storage
-    const feedbackResults = JSON.parse(localStorage.getItem("feedbackResults"));
-    //   add answer to an array
-    feedbackResults.push(answer);
-    // set score results in ls
-    localStorage.setItem("feedbackResults", JSON.stringify(feedbackResults))
-    //   store answer in local storage
+//   const storeAnswerInLS = (answer) => {
+//     //   get feedback results from local storage
+//     const feedbackResults = JSON.parse(localStorage.getItem("feedbackResults"));
+//     //   add answer to an array
+//     feedbackResults.push(answer);
+//     // set score results in ls
+//     localStorage.setItem("feedbackResults", JSON.stringify(feedbackResults));
+//     //   store answer in local storage
 
-  }
+//   }
 
 // declaring the event handler for the quiz start button click
 const quizStartButtonClick = () => {

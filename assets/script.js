@@ -287,7 +287,7 @@ removeBanner();
 renderQuestionSection();
 
 // render the timer box
-renderTimerSection();
+// renderTimerSection();
 
 };
 

@@ -80,18 +80,18 @@ const feedbackResultstoLS = () => {
 }
 
 
-// an element for results ls
-const highScore = {
-    score: score,
-  };
+// // an element for results ls
+// const highScore = {
+//     score: score,
+//   };
 
-// function on page load
+// // function on page load
 
-const highScores = readFromLocalStorage('highScores', []);
+// const highScores = readFromLocalStorage('highScores', []);
   
-    highScores.push(highScore);
+//     highScores.push(highScore);
   
-    writeToLocalStorage('highScores', highScores);
+//     writeToLocalStorage('highScores', highScores);
 
   
 

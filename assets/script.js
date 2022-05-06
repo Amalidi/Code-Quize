@@ -53,32 +53,6 @@ const handleTimerButton = () => {
   });
 
 
-//   Local storage for the score
-const localStorageRecieved = (key) => {
-    return JSON.parse(localStorage .getItem(key));
-}
-
-// the results from local storage
-const resultsFromLocalStorage = () => {
-    return localStorageRecieved (resultKey)
-}
-
-const feedbackResultsLS = () => {
-    localStorage.setItem(resultKey, JSON.stringify([]));
-}
-
-const localStorageboard = ( key, stored) => {
-    localStorage.setItem(key, JSON.stringify(stored));
-}
-
-const feedbackResultstoLS = () => {
-    const highScores = resultsFromLocalStorage();
-
-    highScores.push(stored);
-
-    localStorageboard(resultKey, highScores);
-}
-
 
 // // an element for results ls
 // const highScore = {

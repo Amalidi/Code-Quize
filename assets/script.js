@@ -33,7 +33,7 @@ const handleTimerButton = () => {
       time -= 1;
   
       // set text to new timer figures
-      timerSpan.textContent = timer;
+      timerSpan.textContent = time;
   
       // check if timer is 0
       if (time === 0) {
@@ -52,8 +52,6 @@ const handleTimerButton = () => {
     time -= 1;
   });
 
-
-  
 
 
 

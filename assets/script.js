@@ -21,8 +21,10 @@ const timerSpan = document.getElementById("time-span")
 let questionIndex = 0;
 let time = 60;
 let feedbackResults ={};
+let quizComplete = false;
 let correctAnswers = 0;
 let currentQuestion
+const scoresLSKey = "highScores";
 let gameOver = false;
 
 
@@ -34,12 +36,17 @@ const handleTimerButton = () => {
   
       // set text to new timer figures
       timerSpan.textContent = time;
+      if (quizComplete) {
+        clearInterval(timerId);
+        document.getElementById("timer").remove();
+      } else {
   
       // check if timer is 0
       if (time === 0) {
         clearInterval(timerId);
       }
-    };
+    }
+};
   
     // start the timer
     const timerId = setInterval(updateTimerValue, 1000);
@@ -59,13 +66,43 @@ const handleTimerButton = () => {
 //     score: score,
 //   };
 
-// // function on page load
+// using local storage for the highscores
+const feedbackSoresLS = (key) => {
+    return JSON.parse(localStorage.getItem(key));
+  };
 
-// const highScores = readFromLocalStorage('highScores', []);
-  
-//     highScores.push(highScore);
-  
-//     writeToLocalStorage('highScores', highScores);
+
+const highscoresLS = () => {
+    return feedbackSoresLS(scoresLSKey);
+  };
+
+const highScoresInLS = () => {
+    localStorage.setItem(scoresLSKey, JSON.stringify([]));
+  };
+
+
+  const feedbackSoresToLS = (key, data) => {
+    localStorage.setItem(key, JSON.stringify(data));
+  }
+
+  const feedbackHighscoresLS = (data) => {
+
+    const highScores = highscoresLS();
+    // push into an array
+    highScores.push(data);
+    //write the updated array into local storage
+    writeToLS(scoresLSKey, highScores);
+  };
+
+  const HighscoresPage = () => {
+    //   from local storage
+    const feedbackHighscoresFromLS = highscoresLS ();
+
+    // check if it exist
+    if (!feedbackHighscoresFromLS) {
+        highScoresInLS();
+      }
+  };
 
   
 

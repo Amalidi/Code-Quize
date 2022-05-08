@@ -158,7 +158,7 @@ footer {
 .timer {
   display: flex;
   justify-content: space-between;
-  background: #0077b6;
+  background: #00b4d8;
   border: 1px solid #b8daff;
   border-radius: 5px;
   padding: 0 8px;
@@ -319,6 +319,7 @@ footer {
 
 .buttongo {
   margin: 5px;
+  text-decoration: none;
 }
 
 .buttonsScores {

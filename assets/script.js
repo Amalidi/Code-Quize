@@ -42,7 +42,7 @@ const handleTimerButton = () => {
       } else {
   
       // check if timer is 0
-      if (time === 0) {
+      if (time <= 0) {
         clearInterval(timerId);
       }
     }
